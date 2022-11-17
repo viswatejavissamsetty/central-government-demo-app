@@ -5,6 +5,7 @@ import { Button, Card, TextInput } from "react-native-paper";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { REACT_APP_BASE_URL } from "@env"
 
 const initialValues = {
   email: "",
@@ -15,6 +16,8 @@ function LoginPage() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
+  console.log(REACT_APP_BASE_URL);
+
   useEffect(() => {
     AsyncStorage.getItem("id").then((d) => {
       if (d) navigate("/welcome");
@@ -23,7 +26,7 @@ function LoginPage() {
 
   const onSubmit = (values) => {
     axios
-      .post("http://192.168.55.104:8000/user/login", { ...values })
+      .post("https://login-demo.herokuapp.com/users/login", { ...values })
       .then((res) => res.data)
       .then((data) => {
         AsyncStorage.setItem("id", data);

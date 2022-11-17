@@ -38,7 +38,7 @@ function WelcomePage() {
 
   const getProfile = (id) => {
     axios
-      .get("http://192.168.55.104:8000/user/" + id)
+      .get("https://login-demo.herokuapp.com/users/" + id)
       .then((res) => res.data)
       .then((data) => {
         // console.log(data);
@@ -136,7 +136,7 @@ function WelcomePage() {
                     onPress={() => {
                       axios
                         .patch(
-                          "http://192.168.55.104:8000/user/update-profile/" +
+                          "https://login-demo.herokuapp.com/users/update-profile/" +
                             id,
                           { ...updateProfile }
                         )
