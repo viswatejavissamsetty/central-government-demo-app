@@ -53,7 +53,7 @@ function RegisterPage() {
   const onSubmit = (values) => {
     // console.log(values);
     axios
-      .post("https://login-demo.herokuapp.com/users", { ...values })
+      .post("https://login-demo.herokuapp.com/user", { ...values })
       .then((res) => res.data)
       .then((data) => {
         // console.log(data);

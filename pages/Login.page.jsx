@@ -26,7 +26,7 @@ function LoginPage() {
 
   const onSubmit = (values) => {
     axios
-      .post("https://login-demo.herokuapp.com/users/login", { ...values })
+      .post("https://login-demo.herokuapp.com/user/login", { ...values })
       .then((res) => res.data)
       .then((data) => {
         AsyncStorage.setItem("id", data);

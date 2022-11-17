@@ -38,7 +38,7 @@ function WelcomePage() {
 
   const getProfile = (id) => {
     axios
-      .get("https://login-demo.herokuapp.com/users/" + id)
+      .get("https://login-demo.herokuapp.com/user/" + id)
       .then((res) => res.data)
       .then((data) => {
         // console.log(data);
@@ -136,7 +136,7 @@ function WelcomePage() {
                     onPress={() => {
                       axios
                         .patch(
-                          "https://login-demo.herokuapp.com/users/update-profile/" +
+                          "https://login-demo.herokuapp.com/user/update-profile/" +
                             id,
                           { ...updateProfile }
                         )
