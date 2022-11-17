@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { Alert, ScrollView, StyleSheet, View } from "react-native";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { Formik } from "formik";
@@ -62,6 +62,16 @@ function RegisterPage() {
       })
       .catch((error) => {
         console.error(error);
+        Alert.alert(
+          "Failed",
+          "Unable to create your profile, please try again later",
+          [
+            {
+              text: "OK",
+              onPress: () => console.log("OK Pressed"),
+            },
+          ]
+        );
       });
   };
 
